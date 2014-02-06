@@ -1,0 +1,20 @@
+{
+    "require": {
+        "silex/silex": "~1.0",
+        "symfony/twig-bridge": "~2.1.0",
+        "guzzle/guzzle": "~3.7",
+        "symfony/security": "~2.3"
+    },
+    "require-dev": {
+        "behat/behat": "~2.5.1",
+        "behat/mink-extension": "~1.2.0",
+        "behat/mink-selenium2-driver": "~1.1.1",
+        "behat/mink-goutte-driver": "~1.0.9"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "autoload": {
+        "psr-0": {"RaptorStore": "src/"}
+    }
+}

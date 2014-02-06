@@ -1,0 +1,39 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index f0ca319..dbef307 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -56,6 +56,20 @@ class FeatureContext extends MinkContext
+     }
+ 
+     /**
++     * @Given /^I am logged in as an admin$/
++     */
++    public function iAmLoggedInAsAnAdmin()
++    {
++        return array(
++            new Given('I am on "/login"'),
++            new Given('I fill in "Username" with "admin"'),
++            new Given('I fill in "Password" with "adminpass"'),
++            new Given('I press "Login"'),
++            new Then('I should not see "Login"')
++        );
++    }
++
++    /**
+      * @return \Behat\Mink\Element\DocumentElement
+      */
+     private function getPage()
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+index 01c67a2..31e22f7 100644
+--- a/features/product_admin.feature
++++ b/features/product_admin.feature
+@@ -3,6 +3,9 @@ Feature: Product admin
+   As an admin
+   I need to be able to add, edit and delete products
+ 
++  Background:
++    Given I am logged in as an admin
++
+   Scenario: Seeing a list of existing products
+     Given I am on "/admin"
+     When I click "Products"

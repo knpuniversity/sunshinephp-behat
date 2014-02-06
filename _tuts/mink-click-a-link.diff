@@ -1,0 +1,21 @@
+diff --git a/play.php b/play.php
+index c00f960..0dabca6 100644
+--- a/play.php
++++ b/play.php
+@@ -12,11 +12,14 @@ $session = new Session($driver);
+ $session->start();
+ 
+ $session->visit('http://sunshinephp.com');
+-var_dump($session->getCurrentUrl());
+ 
+ /** @var \Behat\Mink\Element\DocumentElement $page */
+ $page = $session->getPage();
+ 
+ /** @var \Behat\Mink\Element\NodeElement $h1 */
+ $h1 = $page->find('css', 'h1');
+-var_dump($h1->getText());
++
++$registerAnchor = $page->find('css', '.btn-register');
++$registerAnchor->click();
++
++var_dump($session->getCurrentUrl());

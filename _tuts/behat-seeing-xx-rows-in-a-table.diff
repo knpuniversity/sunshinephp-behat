@@ -1,0 +1,46 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index 0d0c1af..fc7515c 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -41,4 +41,29 @@ class FeatureContext extends MinkContext
+     {
+         return new When(sprintf('I follow "%s"', $linkName));
+     }
++
++    /**
++     * @Given /^I should see (\d+) rows in the table$/
++     */
++    public function iShouldSeeRowsInTheTable($rowCount)
++    {
++        $table = $this->getPage()->find('css', '.main-content table');
++        if (!$table) {
++            throw new \Exception('Cannot find a table!');
++        }
++
++        $rows = $table->findAll('css', 'tbody tr');
++
++        if ($rowCount != count($rows)) {
++            throw new \Exception('not the right number! - I see '.count($rows));
++        }
++    }
++
++    /**
++     * @return \Behat\Mink\Element\DocumentElement
++     */
++    private function getPage()
++    {
++        return $this->getSession()->getPage();
++    }
+ }
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+index 69a6670..01c67a2 100644
+--- a/features/product_admin.feature
++++ b/features/product_admin.feature
+@@ -7,6 +7,7 @@ Feature: Product admin
+     Given I am on "/admin"
+     When I click "Products"
+     Then I should see "The Veggie-dino cookbook"
++    And I should see 3 rows in the table
+ 
+   Scenario: Add a new product
+      Given I am on "/products"

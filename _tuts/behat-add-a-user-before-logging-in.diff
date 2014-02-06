@@ -1,0 +1,13 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index a05a4b8..58b3f72 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -62,6 +62,8 @@ class FeatureContext extends MinkContext
+      */
+     public function iAmLoggedInAsAnAdmin()
+     {
++        $this->createAdminUser('admin', 'adminpass');
++
+         return array(
+             new Given('I am on "/login"'),
+             new Given('I fill in "Username" with "admin"'),

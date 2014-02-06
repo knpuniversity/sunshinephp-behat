@@ -1,0 +1,12 @@
+diff --git a/play.php b/play.php
+index ed6927d..c00f960 100644
+--- a/play.php
++++ b/play.php
+@@ -17,4 +17,6 @@ var_dump($session->getCurrentUrl());
+ /** @var \Behat\Mink\Element\DocumentElement $page */
+ $page = $session->getPage();
+ 
+-var_dump($page->getText());
++/** @var \Behat\Mink\Element\NodeElement $h1 */
++$h1 = $page->find('css', 'h1');
++var_dump($h1->getText());

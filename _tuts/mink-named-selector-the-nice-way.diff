@@ -1,0 +1,17 @@
+diff --git a/play.php b/play.php
+index 556f094..b2d8c0a 100644
+--- a/play.php
++++ b/play.php
+@@ -20,10 +20,8 @@ $page = $session->getPage();
+ $h1 = $page->find('css', 'h1');
+ 
+ // $registerAnchor = $page->find('css', '.btn-register');
+-$registerAnchor = $page->find(
+-    'named',
+-    array('link', $session->getSelectorsHandler()->xpathLiteral('REGISTER'))
+-);
++// fuzzy match, but case-sensitive
++$registerAnchor = $page->findLink('REGISTER');
+ $registerAnchor->click();
+ 
+ var_dump($session->getCurrentUrl());

@@ -1,0 +1,33 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index fc7515c..f0ca319 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -14,8 +14,8 @@ use Behat\Behat\Context\Step\Then;
+ //
+ // Require 3rd-party libraries here:
+ //
+-//   require_once 'PHPUnit/Autoload.php';
+-//   require_once 'PHPUnit/Framework/Assert/Functions.php';
++require_once __DIR__.'/../../vendor/phpunit/phpunit/PHPUnit/Autoload.php';
++require_once __DIR__.'/../../vendor/phpunit/phpunit/PHPUnit/Framework/Assert/Functions.php';
+ //
+ 
+ /**
+@@ -48,15 +48,11 @@ class FeatureContext extends MinkContext
+     public function iShouldSeeRowsInTheTable($rowCount)
+     {
+         $table = $this->getPage()->find('css', '.main-content table');
+-        if (!$table) {
+-            throw new \Exception('Cannot find a table!');
+-        }
++        assertNotNull($table, 'Cannot find a table!');
+ 
+         $rows = $table->findAll('css', 'tbody tr');
+ 
+-        if ($rowCount != count($rows)) {
+-            throw new \Exception('not the right number! - I see '.count($rows));
+-        }
++        assertCount(intval($rowCount), $rows);
+     }
+ 
+     /**

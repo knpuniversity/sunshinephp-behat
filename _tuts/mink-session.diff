@@ -1,0 +1,14 @@
+diff --git a/play.php b/play.php
+index b2802e8..9a1c7ad 100644
+--- a/play.php
++++ b/play.php
+@@ -7,3 +7,9 @@ use Behat\Mink\Driver\Selenium2Driver;
+ use Behat\Mink\Session;
+ 
+ $driver = new GoutteDriver();
++
++$session = new Session($driver);
++$session->start();
++
++$session->visit('http://sunshinephp.com');
++var_dump($session->getCurrentUrl());

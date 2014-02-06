@@ -2,6 +2,8 @@
 /** @var $app \Silex\Application */
 
 use Symfony\Component\HttpFoundation\Request;
+use RaptorStore\Product;
+use RaptorStore\User;
 
 /**
  * Controllers and routes
@@ -36,6 +38,12 @@ $app->post('/products/new', function(\Silex\Application $app, Request $request) 
 
     /** @var $product Product */
     $product = $app['product_repository']->arrayToObject($request->request->all());
+
+    $user = $app['security']->getToken()->getUser();
+    if ($user && $user instanceof \RaptorStore\User) {
+        $product->author = $user;
+    }
+
     $app['product_repository']->insert($product);
 
     $request->getSession()->getFlashbag()->add('success', 'Product created FTW!');

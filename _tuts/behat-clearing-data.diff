@@ -1,0 +1,26 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index 64faf4d..a05a4b8 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -126,6 +126,9 @@ class FeatureContext extends MinkContext
+         self::$app['product_repository']->update($product);
+     }
+ 
++    /**
++     * @BeforeScenario
++     */
+     public function clearData()
+     {
+         self::$app['user_repository']->emptyTable();
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+index 84bfdb7..d8c76c6 100644
+--- a/features/product_admin.feature
++++ b/features/product_admin.feature
+@@ -10,7 +10,6 @@ Feature: Product admin
+     Given I am on "/admin"
+     And there are 3 products
+     When I click "Products"
+-    Then I should see "The Veggie-dino cookbook"
+     And I should see 3 rows in the table
+ 
+   Scenario: Add a new product

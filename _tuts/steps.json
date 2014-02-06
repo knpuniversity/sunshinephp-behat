@@ -54,6 +54,71 @@
             "id": "behat-creating-first-feature-scenario",
             "name": "Behat: Creating first feature+scenario",
             "description": null
+        },
+        {
+            "id": "behat-scenario-with-a-form",
+            "name": "Behat: Scenario with a form",
+            "description": null
+        },
+        {
+            "id": "behat-custom-step-with-click",
+            "name": "Behat: Custom step with click",
+            "description": null
+        },
+        {
+            "id": "behat-meta-step-for-click",
+            "name": "Behat: Meta step for click",
+            "description": null
+        },
+        {
+            "id": "behat-seeing-xx-rows-in-a-table",
+            "name": "Behat: seeing xx rows in a table",
+            "description": null
+        },
+        {
+            "id": "behat-use-phpunit",
+            "name": "Behat: use phpunit",
+            "description": null
+        },
+        {
+            "id": "behat-login-metastep",
+            "name": "Behat: Login, metastep",
+            "description": null
+        },
+        {
+            "id": "behat-adding-the-bootstrap-code",
+            "name": "Behat: Adding the bootstrap code",
+            "description": null
+        },
+        {
+            "id": "behat-there-are-xx-products",
+            "name": "Behat: There are XX products",
+            "description": null
+        },
+        {
+            "id": "behat-clearing-data",
+            "name": "Behat: Clearing data",
+            "description": null
+        },
+        {
+            "id": "behat-add-a-user-before-logging-in",
+            "name": "Behat: Add a user before logging in",
+            "description": null
+        },
+        {
+            "id": "behat-loading-with-javascript",
+            "name": "Behat: Loading with JavaScript",
+            "description": null
+        },
+        {
+            "id": "behat-debugging-with-break",
+            "name": "Behat: Debugging with break",
+            "description": null
+        },
+        {
+            "id": "behat-adding-wait",
+            "name": "Behat: Adding wait",
+            "description": null
         }
     ]
 }

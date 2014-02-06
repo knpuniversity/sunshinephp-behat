@@ -1,0 +1,13 @@
+diff --git a/play.php b/play.php
+index 9a1c7ad..ed6927d 100644
+--- a/play.php
++++ b/play.php
+@@ -13,3 +13,8 @@ $session->start();
+ 
+ $session->visit('http://sunshinephp.com');
+ var_dump($session->getCurrentUrl());
++
++/** @var \Behat\Mink\Element\DocumentElement $page */
++$page = $session->getPage();
++
++var_dump($page->getText());

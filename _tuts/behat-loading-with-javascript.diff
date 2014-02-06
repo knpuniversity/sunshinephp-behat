@@ -1,0 +1,12 @@
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+index d8c76c6..a9eb817 100644
+--- a/features/product_admin.feature
++++ b/features/product_admin.feature
+@@ -12,6 +12,7 @@ Feature: Product admin
+     When I click "Products"
+     And I should see 3 rows in the table
+ 
++  @javascript
+   Scenario: Add a new product
+      Given I am on "/products"
+      When I click "New Product"

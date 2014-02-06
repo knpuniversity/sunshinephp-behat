@@ -1,0 +1,13 @@
+diff --git a/play.php b/play.php
+index 1ca1048..b2802e8 100644
+--- a/play.php
++++ b/play.php
+@@ -4,4 +4,6 @@ require __DIR__.'/vendor/autoload.php';
+ 
+ use Behat\Mink\Driver\GoutteDriver;
+ use Behat\Mink\Driver\Selenium2Driver;
+-use Behat\Mink\Session;
+\ No newline at end of file
++use Behat\Mink\Session;
++
++$driver = new GoutteDriver();

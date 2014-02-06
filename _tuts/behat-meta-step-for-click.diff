@@ -1,0 +1,22 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index de37511..0d0c1af 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -8,6 +8,9 @@ use Behat\Gherkin\Node\PyStringNode,
+     Behat\Gherkin\Node\TableNode;
+ 
+ use Behat\MinkExtension\Context\MinkContext;
++use Behat\Behat\Context\Step\Given;
++use Behat\Behat\Context\Step\When;
++use Behat\Behat\Context\Step\Then;
+ //
+ // Require 3rd-party libraries here:
+ //
+@@ -36,6 +39,6 @@ class FeatureContext extends MinkContext
+      */
+     public function iClick($linkName)
+     {
+-        $this->getSession()->getPage()->clickLink($linkName);
++        return new When(sprintf('I follow "%s"', $linkName));
+     }
+ }

@@ -1,0 +1,36 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index 2afcace..64faf4d 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -72,6 +72,19 @@ class FeatureContext extends MinkContext
+     }
+ 
+     /**
++     * @Given /^there are (\d+) products$/
++     */
++    public function thereAreProducts($num)
++    {
++        for ($i = 0; $i < $num; $i++) {
++            $this->createProduct(
++                'Sickle-shaped Claw'.$num,
++                9.99+$i
++            );
++        }
++    }
++
++    /**
+      * @return \Behat\Mink\Element\DocumentElement
+      */
+     private function getPage()
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+index 31e22f7..84bfdb7 100644
+--- a/features/product_admin.feature
++++ b/features/product_admin.feature
+@@ -8,6 +8,7 @@ Feature: Product admin
+ 
+   Scenario: Seeing a list of existing products
+     Given I am on "/admin"
++    And there are 3 products
+     When I click "Products"
+     Then I should see "The Veggie-dino cookbook"
+     And I should see 3 rows in the table

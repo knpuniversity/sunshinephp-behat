@@ -1,0 +1,59 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "mink-driver",
+            "name": "Mink: Driver",
+            "description": null
+        },
+        {
+            "id": "mink-session",
+            "name": "Mink: Session",
+            "description": null
+        },
+        {
+            "id": "mink-page-text",
+            "name": "Mink: Page text",
+            "description": null
+        },
+        {
+            "id": "mink-find-via-css",
+            "name": "Mink: Find via CSS",
+            "description": null
+        },
+        {
+            "id": "mink-click-a-link",
+            "name": "Mink: Click a link",
+            "description": null
+        },
+        {
+            "id": "mink-named-selector-the-ugly-way",
+            "name": "Mink: Named selector the ugly way",
+            "description": null
+        },
+        {
+            "id": "mink-named-selector-the-nice-way",
+            "name": "Mink: Named selector the nice way",
+            "description": null
+        },
+        {
+            "id": "mink-selenium2driver",
+            "name": "Mink: Selenium2Driver",
+            "description": null
+        },
+        {
+            "id": "behat-init",
+            "name": "Behat: init",
+            "description": null
+        },
+        {
+            "id": "behat-creating-first-feature-scenario",
+            "name": "Behat: Creating first feature+scenario",
+            "description": null
+        }
+    ]
+}

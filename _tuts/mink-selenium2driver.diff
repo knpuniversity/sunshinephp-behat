@@ -1,0 +1,22 @@
+diff --git a/play.php b/play.php
+index b2d8c0a..3f93563 100644
+--- a/play.php
++++ b/play.php
+@@ -6,7 +6,9 @@ use Behat\Mink\Driver\GoutteDriver;
+ use Behat\Mink\Driver\Selenium2Driver;
+ use Behat\Mink\Session;
+ 
+-$driver = new GoutteDriver();
++//$driver = new GoutteDriver();
++// now, the selenium2 server (JAR file) must be started and running in the background
++$driver = new Selenium2Driver();
+ 
+ $session = new Session($driver);
+ $session->start();
+@@ -25,3 +27,6 @@ $registerAnchor = $page->findLink('REGISTER');
+ $registerAnchor->click();
+ 
+ var_dump($session->getCurrentUrl());
++
++// closes the browser window
++$session->stop();

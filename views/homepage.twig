@@ -1,7 +1,10 @@
 {% extends 'layout.twig' %}
 
-{% block sidebar %}{% endblock %}
-
 {% block body %}
     <h1>Welcome!</h1>
+
+    <p>
+        <a href="{{ path('db_rebuild') }}" class="btn btn-primary">Reset the DB</a> first in order
+        to get some dummy data.
+    </p>
 {% endblock %}

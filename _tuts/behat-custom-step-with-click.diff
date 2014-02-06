@@ -1,0 +1,46 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index 341c03b..de37511 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -31,15 +31,11 @@ class FeatureContext extends MinkContext
+         // Initialize your context here
+     }
+ 
+-//
+-// Place your definition and hook methods here:
+-//
+-//    /**
+-//     * @Given /^I have done something with "([^"]*)"$/
+-//     */
+-//    public function iHaveDoneSomethingWith($argument)
+-//    {
+-//        doSomethingWith($argument);
+-//    }
+-//
++    /**
++     * @When /^I click "([^"]*)"$/
++     */
++    public function iClick($linkName)
++    {
++        $this->getSession()->getPage()->clickLink($linkName);
++    }
+ }
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+index 1af265e..69a6670 100644
+--- a/features/product_admin.feature
++++ b/features/product_admin.feature
+@@ -5,12 +5,12 @@ Feature: Product admin
+ 
+   Scenario: Seeing a list of existing products
+     Given I am on "/admin"
+-    When I follow "Products"
++    When I click "Products"
+     Then I should see "The Veggie-dino cookbook"
+ 
+   Scenario: Add a new product
+      Given I am on "/products"
+-     When I follow "New Product"
++     When I click "New Product"
+      And I fill in "teddy-bear" for "Name"
+      And I fill in "5.99" for "Price"
+      And I press "Save"

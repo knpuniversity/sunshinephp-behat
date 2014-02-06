@@ -1,0 +1,36 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index a02dca0..341c03b 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -7,6 +7,7 @@ use Behat\Behat\Context\ClosuredContextInterface,
+ use Behat\Gherkin\Node\PyStringNode,
+     Behat\Gherkin\Node\TableNode;
+ 
++use Behat\MinkExtension\Context\MinkContext;
+ //
+ // Require 3rd-party libraries here:
+ //
+@@ -17,7 +18,7 @@ use Behat\Gherkin\Node\PyStringNode,
+ /**
+  * Features context.
+  */
+-class FeatureContext extends BehatContext
++class FeatureContext extends MinkContext
+ {
+     /**
+      * Initializes context.
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+new file mode 100644
+index 0000000..1e3011b
+--- /dev/null
++++ b/features/product_admin.feature
+@@ -0,0 +1,9 @@
++Feature: Product admin
++  In order to manage the content on my site
++  As an admin
++  I need to be able to add, edit and delete products
++
++  Scenario: Seeing a list of existing products
++    Given I am on "/admin"
++    When I follow "Products"
++    Then I should see "The Veggie-dino cookbook"

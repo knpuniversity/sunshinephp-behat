@@ -1,0 +1,35 @@
+diff --git a/features/bootstrap/FeatureContext.php b/features/bootstrap/FeatureContext.php
+index e497a7c..9a0f8a7 100644
+--- a/features/bootstrap/FeatureContext.php
++++ b/features/bootstrap/FeatureContext.php
+@@ -87,6 +87,17 @@ class FeatureContext extends MinkContext
+     }
+ 
+     /**
++     * @Given /^I wait for the dialog to appear$/
++     */
++    public function iWaitForTheDialogToAppear()
++    {
++        $this->getSession()->wait(
++            5000,
++            "jQuery('.modal').is(':visible');"
++        );
++    }
++
++    /**
+      * Pauses the scenario until the user presses a key. Useful when debugging a scenario.
+      *
+      * @Then /^break$/
+diff --git a/features/product_admin.feature b/features/product_admin.feature
+index f2eaf13..3c32302 100644
+--- a/features/product_admin.feature
++++ b/features/product_admin.feature
+@@ -16,7 +16,7 @@ Feature: Product admin
+   Scenario: Add a new product
+      Given I am on "/products"
+      When I click "New Product"
+-     And break
++     And I wait for the dialog to appear
+      And I fill in "teddy-bear" for "Name"
+      And I fill in "5.99" for "Price"
+      And I press "Save"
